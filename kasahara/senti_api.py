@@ -8,7 +8,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(
     "cl-tohoku/bert-base-japanese-whole-word-masking")
-adapter_path = "../sst-2"
+# adapter_path = "../sst-2"
+adapter_path = "../new-sst-2"
 model.load_adapter(adapter_path)
 
 
