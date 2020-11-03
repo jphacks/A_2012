@@ -29,8 +29,8 @@ app = Flask(__name__)
 def senti_classfy():
     sentence = request.args.get('s', '')
     if sentence == '':
-        return 'error'
-    return predict(sentence)
+        return {'emotion': 'error'}
+    return {'emotion': predict(sentence)}
 
 
 if __name__ == "__main__":
