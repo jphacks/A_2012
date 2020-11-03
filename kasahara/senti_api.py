@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def senti_classfy():
-    sentence = request.args.get('query', '')
+    sentence = request.args.get('s', '')
     return predict(sentence)
 
 
