@@ -30,7 +30,7 @@ def senti_classfy():
     sentence = request.args.get('s', '')
     if sentence == '':
         return 'error'
-    return sentence
+    return predict(sentence)
 
 
 if __name__ == "__main__":
