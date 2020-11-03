@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>api test</title>
+</head>
+<body>
+    <h2>感情分析APIをテストしちゃうよん</h2>
+    <button id="btn">start</button>
+    <div id="content"></div>
+
+    <script>
+        // 感情分析API
+        const fetchSentiJudge = async(url) => {
+            const resp = await fetch(url);
+            const judge = await resp.json();
+            console.log(judge.emotion);
+        };
+
+        // 音声認識API
+        const speech = new webkitSpeechRecognition();
+        speech.lang = 'ja-JP';
+
+        const btn = document.getElementById('btn');
+        const content = document.getElementById('content');
+
+        btn.addEventListener('click' , function() {
+            speech.start();
+        });
+
+        speech.onresult = function(e) {
+            speech.stop();
+            if(e.results[0].isFinal){
+                var autotext =  e.results[0][0].transcript
+                content.innerHTML += '<div>' + autotext + '</div>';
+                var url = 'http://127.0.0.1:5000/?s=' + autotext;
+                fetchSentiJudge(url);
+            }
+        }
+
+        speech.onend = () => {
+            speech.start()
+        };
+
+
+    </script>
+<body>
+<html>
