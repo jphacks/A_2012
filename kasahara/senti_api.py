@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, TFAutoModel, AdapterType
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, AdapterType
 from flask import Flask, request
 
 
