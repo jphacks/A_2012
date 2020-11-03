@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BERTテスト</title>
+</head>
+
+<body>
+    <!-- Load TensorFlow.js. This is required to use the qna model. -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script> -->
+    <script>
+        import * as tf from '@tensorflow/tfjs';
+        const model = await tf.loadLayersModel('./tfjs/model.json');
+
+        
+    </script>
+</body>
+
+</html>
