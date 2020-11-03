@@ -8,13 +8,33 @@
     <h2>感情分析APIをテストしちゃうよん</h2>
     <button id="btn">start</button>
     <div id="content"></div>
+    <div style="color: red;"></div>
 
     <script>
+        // ネガポジの履歴
+        let queue = [];
+
+        // ネガティブに話題が寄った時に実行される関数
+        const alertNegative = () =>{
+            queue.splice(0);
+            content.innerHTML += '<h3 style="color: red;">そろそろ話題変えない！？！？！？</h3>';
+        };
+
         // 感情分析API
         const fetchSentiJudge = async(url) => {
             const resp = await fetch(url);
             const judge = await resp.json();
             console.log(judge.emotion);
+            if(queue.length == 8){
+                queue.shift();
+                queue.push(judge.emotion)
+                if(queue.every(value => value == 'negative')){
+                    alertNegative();
+                }
+            }else{
+                queue.push(judge.emotion)
+            }
+            content.innerHTML += '<div style="color: aquamarine;">' + judge.emotion + '</div>';
         };
 
         // 音声認識API
