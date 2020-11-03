@@ -13,3 +13,5 @@ sst-2/
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+# modelファイル
+.h5
