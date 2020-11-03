@@ -6,11 +6,13 @@
   <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
   <script type="text/javascript" language="JavaScript">
     function add_subject() {
-      const element = document.createElement(p)
+      const str1 = document.form.subjectname.value;
+      const Place_aS = document.getElementById('addSub');
+      const Clone_subjects = document.createElement('p');
+      Clone_subjects.setAttribute("class","subjects"); 
+      Place_aS.appendChild(Clone_subjects);
     }
-    function jump_to_top{
 
-    }
     </script>
     <style>
       body {
@@ -19,7 +21,7 @@
       }
       .page{
         text-align: center;
-        padding:5rem 10rem;
+        padding:3rem 6rem;
         font-size: 3rem;
       }
       .button1 {
@@ -42,15 +44,16 @@
         text-align: left;
       }
       .scroll{
-        width:100%;height:40rem;overflow:auto;
+        width:100%;height:80rem;overflow:auto;
         border-radius: 1rem;
-        background: #7e7e7e;
+        background: #f7f7f7;
+        box-shadow: inset 1rem 1rem 3rem #d2d2d2, inset 1rem 1rem 3rem #ffffff;
         border: 1rem;
         padding: 0.5rem;
       }
       .subjects{
         margin: 2rem 0rem;
-        padding:0.5rem 0rem;
+        padding:1rem 0rem;
         border-radius: 0.5rem;
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
@@ -58,7 +61,7 @@
       .button2 {
         color:#f8c758;
         margin: 1rem;
-        margin-top: 20rem;
+        margin-top: 5rem;
         padding:0.5rem 8rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
@@ -69,10 +72,14 @@
 <body>
   <div class="page">
     <p class="toppic">話題</p>
-    <input class="textbox" type="text" placeholder="好きな話題を入力してね">
+    <form action="" name = "form">
+      <input class="textbox" name="subjectname" type="text" placeholder="好きな話題を入力してね">
+    </form>
     <br>
     <input class="button1" type="button" value="追加" onclick="add_subject()">
     <div class="scroll">
+      <div id="addSub">
+      </div>
       <p class="subjects">だんごむし</p>
       <p class="subjects">だんごむし</p>
       <p class="subjects">だんごむし</p>
