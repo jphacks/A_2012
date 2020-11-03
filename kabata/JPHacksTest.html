@@ -5,31 +5,84 @@
   <meta charset="UTF-8">
   <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
   <script type="text/javascript" language="JavaScript">
-    function alert_msg() {
+    function add_subject() {
       const element = document.createElement(p)
+    }
+    function jump_to_top{
+
     }
     </script>
     <style>
       body {
         background: #ffffff;
+        text-align:center;
+      }
+      .page{
+        text-align: center;
+        padding:5rem 10rem;
+        font-size: 3rem;
       }
       .button1 {
-        border-radius: 50px;
+        color:#f8c758;
+        margin: 1rem;
+        margin-bottom: 10rem;
+        padding:0.5rem 8rem;
+        border-radius: 3.5rem;
         background: #f7f7f7;
-        box-shadow:  20px 20px 60px #d2d2d2, -20px -20px 60px #ffffff;
+        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
       .textbox{
-        padding-top: 5px;
-        padding-bottom: 5px;
+        width: 100%;
+        border-radius: 1rem;
+        background: #f7f7f7;
+        box-shadow: inset 0.5rem 0.5rem 1.5rem #d2d2d2, inset 0.5rem 0.5rem 1.5rem #ffffff;
+        padding: 1rem 0.5rem;
+      }
+      .toppic {
+        text-align: left;
+      }
+      .scroll{
+        width:100%;height:40rem;overflow:auto;
+        border-radius: 1rem;
+        background: #7e7e7e;
+        border: 1rem;
+        padding: 0.5rem;
+      }
+      .subjects{
+        margin: 2rem 0rem;
+        padding:0.5rem 0rem;
+        border-radius: 0.5rem;
+        background: #f7f7f7;
+        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+      }
+      .button2 {
+        color:#f8c758;
+        margin: 1rem;
+        margin-top: 20rem;
+        padding:0.5rem 8rem;
+        border-radius: 3.5rem;
+        background: #f7f7f7;
+        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
     </style>
 </head>
 <body>
-  <p1>話題</p1>
-  <br>
-  <input class="textbox" type="text" size="50" placeholder="好きな話題を入力してね">
-  <br>
-  <input class="button1" type="button" value="追加" onclick="alert_msg()">
-
+  <div class="page">
+    <p class="toppic">話題</p>
+    <input class="textbox" type="text" placeholder="好きな話題を入力してね">
+    <br>
+    <input class="button1" type="button" value="追加" onclick="add_subject()">
+    <div class="scroll">
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+      <p class="subjects">だんごむし</p>
+    </div>
+  <input class="button2" type="button" value="TOPへ" onclick="jump_to_top()">
+  </div>
 </body>
 </html>
