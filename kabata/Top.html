@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JPHacksTest</title>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
+  <script type="text/javascript" language="JavaScript">
+    function add_subject() {
+      const str1 = document.form.subjectname.value;
+      const Place_aS = document.getElementById('addSub');
+      const Clone_subjects = document.createElement('p');
+      Clone_subjects.setAttribute("class","subjects"); 
+      Place_aS.appendChild(Clone_subjects);
+    }
+
+    </script>
+    <style>
+      body {
+        background: #ffffff;
+        text-align:center;
+      }
+      .page{
+        text-align: center;
+        padding:5rem 10rem;
+        font-size: 3rem;
+      }
+      .toppage{
+        padding-top:70rem;
+      }
+      .text{
+        color:#f8c758;
+        text-align: center;
+        padding:2rem 0rem;
+      }
+      .button_top {
+        width: 80%;
+        color:#f8c758;
+        margin: 1.5rem 0rem;
+        margin-bottom: 2rem;
+        padding:0.5rem 0rem;
+        border-radius: 3.5rem;
+        background: #f7f7f7;
+        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+      }
+    </style>
+</head>
+<body>
+  <div class="page">
+    <div class="toppage">
+    <input class="button_top" type="button" value="話題をセット" onclick="add_subject()">
+    <br>
+    <input class="button_top" type="button" value="会話をはじめる" onclick="add_subject()">
+    <br>
+    <input class="button_top" type="button" value="今までの会話" onclick="add_subject()">
+    </div>
+  </div>
+</body>
+</html>

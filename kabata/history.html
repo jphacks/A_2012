@@ -6,11 +6,13 @@
   <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
   <script type="text/javascript" language="JavaScript">
     function add_subject() {
-      const element = document.createElement(p)
+      const str1 = document.form.subjectname.value;
+      const Place_aS = document.getElementById('addSub');
+      const Clone_subjects = document.createElement('p');
+      Clone_subjects.setAttribute("class","subjects"); 
+      Place_aS.appendChild(Clone_subjects);
     }
-    function jump_to_top{
 
-    }
     </script>
     <style>
       body {
@@ -31,17 +33,28 @@
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .textbox2{
-        margin:10rem 0rem;
+      .textbox{
         width: 100%;
         border-radius: 1rem;
         background: #f7f7f7;
         box-shadow: inset 0.5rem 0.5rem 1.5rem #d2d2d2, inset 0.5rem 0.5rem 1.5rem #ffffff;
         padding: 1rem 0.5rem;
       }
-      .text{
-        color:#f8c758;
-        padding:2rem 0rem;
+      .t_a_l {
+        text-align: left;
+      }
+      .name{
+        font-size: 0.7rem;
+      }
+      .topic_name{
+        font-size: 1.2rem;
+      }
+      .scroll{
+        width:100%;height:40rem;overflow:auto;
+        border-radius: 1rem;
+        background: #f7f7f7;
+        border: 1rem;
+        padding: 0.5rem;
       }
       .projection {
         width: 100%;
@@ -51,45 +64,38 @@
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .button1 {
-        width: 80%;
+      .button2 {
         color:#f8c758;
         margin: 1rem;
-        margin-bottom: 5rem;
+        margin-top: 20rem;
         padding:0.5rem 8rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .button3 {
-        color:#f8c758;
-        margin: 1rem;
-        margin-top: 5rem;
-        padding:0.5rem 8rem;
-        border-radius: 3.5rem;
-        background: #f7f7f7;
-        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+      .member{
+        color:red;
       }
     </style>
 </head>
 <body>
   <div class="page">
-    <div class = "projection">
-      <p class="text">ルームを作成する</p>
-      <form action="" name = "form">
-        <input class="textbox2" name="subjectname" type="text">
-      </form>
-      <input class="button1" type="button" value="ルームを作成" onclick="make_room()">
+    <p class="t_a_l">前回の会話</p>
+    <p class="projection">
+      <p class="name">一番盛り上がった話題</p>
+      <p class="topic_name">だんごむし</p>
+      <p class="name">メンバー</p>
+      <span class="member">fuchio</span>
+      <span class="member">草原</span>
+      <span class="member">ddsk</span>
+      <br>
+    </p>
+    <p class="t_a_l">過去の会話</p>
+    <div class="scroll">
+      <div id="add_history">
+      </div>
     </div>
-    <div class = "projection">
-      <p class="text">ルームを作成する</p>
-      <form action="" name = "form">
-        <input class="textbox2" name="subjectname" type="text">
-      </form>
-      <input class="button1" type="button" value="ルームに参加" onclick="join_room()">
-    </div>
-    <input class="button3" type="button" value="TOPへ" onclick="jump_to_top()">
+  <input class="button2" type="button" value="TOPへ" onclick="jump_to_top()">
   </div>
-  
 </body>
 </html>
