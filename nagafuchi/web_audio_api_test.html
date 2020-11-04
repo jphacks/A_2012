@@ -8,7 +8,7 @@
 <body>
     <h1>web audio apiをテストする</h1>
     <p id="volume"></p>
-    <div id="vol_effect"></div>
+    <div id="vol_effect" style="background-color: aquamarine; height: 5rem;"></div>
     <input type="button" value="マイクon" onclick="audioInput()" />
 
     <script>
@@ -20,7 +20,7 @@
             //音声の音量を取得した要素分格納する変数
             let frequencies = new Uint8Array(analyser.frequencyBinCount);
             // 音量を表示するためのdiv要素を取得
-            let volume = document.getElementById('volume');
+            let volume_elem = document.getElementById('volume');
             let effect = document.getElementById('vol_effect');
             let loop;
             //マイクの入力音声の振幅(音量)を取得する関数
@@ -45,7 +45,7 @@
             (loop = function() {
             //マイクに入力されている音声の音量を取得、表示
             volume = Math.floor(getFrequency());
-            volume.innerHTML = volume;
+            volume_elem.innerHTML = volume;
             effect.style.width = volume + '\%';
             requestAnimationFrame(loop);
             })();
