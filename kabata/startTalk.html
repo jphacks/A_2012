@@ -19,11 +19,11 @@
       }
       .page{
         text-align: center;
-        padding:5rem 10rem;
+        padding:3rem 6rem;
         font-size: 3rem;
       }
       .button1 {
-        color:#f8c758;
+        color:#FFBB00;
         margin: 1rem;
         margin-bottom: 10rem;
         padding:0.5rem 8rem;
@@ -31,34 +31,40 @@
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .textbox{
+      .textbox2{
+        margin:10rem 0rem;
         width: 100%;
         border-radius: 1rem;
         background: #f7f7f7;
         box-shadow: inset 0.5rem 0.5rem 1.5rem #d2d2d2, inset 0.5rem 0.5rem 1.5rem #ffffff;
         padding: 1rem 0.5rem;
       }
-      .toppic {
-        text-align: left;
+      .text{
+        color:#FFBB00;
+        padding:2rem 0rem;
       }
-      .scroll{
-        width:100%;height:40rem;overflow:auto;
-        border-radius: 1rem;
-        background: #7e7e7e;
-        border: 1rem;
-        padding: 0.5rem;
-      }
-      .subjects{
-        margin: 2rem 0rem;
-        padding:0.5rem 0rem;
-        border-radius: 0.5rem;
+      .projection {
+        width: 100%;
+        margin: 5rem 0rem;
+        padding:1rem 8rem;
+        border-radius: 3.5rem;
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .button2 {
-        color:#f8c758;
+      .button1 {
+        width: 80%;
+        color:#FFBB00;
         margin: 1rem;
-        margin-top: 20rem;
+        margin-bottom: 5rem;
+        padding:0.5rem 8rem;
+        border-radius: 3.5rem;
+        background: #f7f7f7;
+        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+      }
+      .button3 {
+        color:#FFBB00;
+        margin: 1rem;
+        margin-top: 5rem;
         padding:0.5rem 8rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
@@ -68,21 +74,22 @@
 </head>
 <body>
   <div class="page">
-    <p class="toppic">話題</p>
-    <input class="textbox" type="text" placeholder="好きな話題を入力してね">
-    <br>
-    <input class="button1" type="button" value="追加" onclick="add_subject()">
-    <div class="scroll">
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
+    <div class = "projection">
+      <p class="text">ルームを作成する</p>
+      <form action="" name = "form">
+        <input class="textbox2" name="subjectname" type="text">
+      </form>
+      <input class="button1" type="button" value="ルームを作成" onclick="make_room()">
     </div>
-  <input class="button2" type="button" value="TOPへ" onclick="jump_to_top()">
+    <div class = "projection">
+      <p class="text">ルームを作成する</p>
+      <form action="" name = "form">
+        <input class="textbox2" name="subjectname" type="text">
+      </form>
+      <input class="button1" type="button" value="ルームに参加" onclick="join_room()">
+    </div>
+    <input class="button3" type="button" value="TOPへ" onclick="jump_to_top()">
   </div>
+  
 </body>
 </html>
