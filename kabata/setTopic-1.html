@@ -22,15 +22,6 @@
         padding:3rem 6rem;
         font-size: 3rem;
       }
-      .button1 {
-        color:#FFBB00;
-        margin: 1rem;
-        margin-bottom: 10rem;
-        padding:0.5rem 8rem;
-        border-radius: 3.5rem;
-        background: #f7f7f7;
-        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
-      }
       .textbox2{
         margin:10rem 0rem;
         width: 100%;
@@ -43,25 +34,33 @@
         color:#FFBB00;
         padding:2rem 0rem;
       }
-      .projection {
+      .text2{
+        margin-top:3rem;
+      }
+      .projection2 {
         width: 100%;
         margin: 5rem 0rem;
-        padding:1rem 8rem;
+        margin-bottom:67.5rem;
+        padding:1rem 0rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .button1 {
-        width: 80%;
+      .button4 {
+        width:40%;
         color:#FFBB00;
         margin: 1rem;
-        margin-bottom: 5rem;
-        padding:0.5rem 8rem;
+        margin-bottom: 2rem;
+        padding:0.5rem 0rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
         box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
-      .button3 {
+      .topic_name2{
+        margin: 6rem 0rem;
+        font-size: 5rem;
+      }
+      .button2 {
         color:#FFBB00;
         margin: 1rem;
         margin-top: 5rem;
@@ -74,21 +73,13 @@
 </head>
 <body>
   <div class="page">
-    <div class = "projection">
-      <p class="text">ルームを作成する</p>
-      <form action="" name = "form">
-        <input class="textbox2" name="subjectname" type="text">
-      </form>
-      <input class="button1" type="button" value="ルームを作成" onclick="make_room()">
+    <p class="text2">話題</p>
+    <div class = "projection2">
+      <p class="topic_name2">アニメ</p>
+      <input class="button4" type="button" value="興味ない" onclick="favorite()">
+      <input class="button4" type="button" value="興味ある" onclick="unfavorite()">    
     </div>
-    <div class = "projection">
-      <p class="text">ルームを作成する</p>
-      <form action="" name = "form">
-        <input class="textbox2" name="subjectname" type="text">
-      </form>
-      <input class="button1" type="button" value="ルームに参加" onclick="join_room()">
-    </div>
-    <input class="button3" type="button" value="TOPへ戻る" onclick="jump_to_top()">
+    <input class="button2" type="button" value="TOPへ戻る" onclick="jump_to_top()">
   </div>
   
 </body>
