@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web audio api test</title>
+</head>
+<body>
+    <h1>web audio apiをテストする</h1>
+    <p id="volume"></p>
+    <div id="vol_effect"></div>
+    <input type="button" value="マイクon" onclick="audioInput()" />
+
+    <script>
+        const audioInput = () => {
+            window.AudioContext = window.AudioContext || window.webkitAudioContext;
+            const context = new AudioContext();
+            //AnalyserNodeオブジェクト(音声解析用クラス)のインスタンス化
+            const analyser = context.createAnalyser();
+            //音声の音量を取得した要素分格納する変数
+            let frequencies = new Uint8Array(analyser.frequencyBinCount);
+            // 音量を表示するためのdiv要素を取得
+            let volume = document.getElementById('volume');
+            let effect = document.getElementById('vol_effect');
+            let loop;
+            //マイクの入力音声の振幅(音量)を取得する関数
+            const getFrequency = () => {
+                //周波数ごとの振幅を取得して配列に格納
+                analyser.getByteFrequencyData(frequencies);
+                return frequencies.reduce(function(previous, current){
+                return previous + current;
+                })/analyser.frequencyBinCount;
+            };
+            //端末のaudio(マイク)にアクセスする
+            navigator.mediaDevices.getUserMedia({audio: true})
+            .then(stream => {
+                window.hackForMozzila = stream;
+                //音声の入力点(createMediaStreamSource)にマイク入力(stream)を設定し,
+                //出力点であるAnalyserNodeオブジェクト(analyser)と接続(connect)させる。
+                context.createMediaStreamSource(stream).connect(analyser);
+            })
+            //マイクにアクセスできなかったorユーザーがマイクの利用を許可しなかった場合はエラーを表示
+            .catch(err => alert(err.message));
+            // 音量を取得して表示を更新
+            (loop = function() {
+            //マイクに入力されている音声の音量を取得、表示
+            volume = Math.floor(getFrequency());
+            volume.innerHTML = volume;
+            effect.style.width = volume + '\%';
+            requestAnimationFrame(loop);
+            })();
+        };
+    </script>
+</body>
+</html>
