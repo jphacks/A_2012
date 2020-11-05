@@ -4,15 +4,16 @@
   <title>JPHacksTest</title>
   <meta charset="UTF-8">
   <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
-  <script type="text/javascript" language="JavaScript">
-    function add_subject() {
+  <script>
+    function add_subject(){
       const str1 = document.form.subjectname.value;
       const Place_aS = document.getElementById('addSub');
       const Clone_subjects = document.createElement('p');
       Clone_subjects.setAttribute("class","subjects"); 
+      const text1 = document.createTextNode(str1);
+      Clone_subjects.appendChild(text1);
       Place_aS.appendChild(Clone_subjects);
     }
-
     </script>
     <style>
       body {
@@ -80,16 +81,8 @@
     <div class="scroll">
       <div id="addSub">
       </div>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
-      <p class="subjects">だんごむし</p>
     </div>
-  <input class="button3" type="button" value="TOPへ戻る" onclick="jump_to_top()">
+  <input class="button3" type="button" value="TOPへ戻る" onclick="location.href='./top.html'">
   </div>
 </body>
 </html>
