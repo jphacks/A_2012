@@ -6,13 +6,20 @@
   <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
   <script>
     function add_subject(){
-      const str1 = document.form.subjectname.value;
-      const Place_aS = document.getElementById('addSub');
-      const Clone_subjects = document.createElement('p');
-      Clone_subjects.setAttribute("class","subjects"); 
-      const text1 = document.createTextNode(str1);
-      Clone_subjects.appendChild(text1);
-      Place_aS.appendChild(Clone_subjects);
+      const clear = document.getElementById('remove');
+      if(clear.value == ''){
+        alert('話題名が入力されていません');
+      }
+      else{
+        const str1 = document.form.subjectname.value;
+        const Place_aS = document.getElementById('addSub');
+        const Clone_subjects = document.createElement('p');
+        Clone_subjects.setAttribute("class","subjects"); 
+        const text1 = document.createTextNode(str1);
+        Clone_subjects.appendChild(text1);
+        Place_aS.appendChild(Clone_subjects);
+        clear.value = '';
+      }
     }
     </script>
     <style>
@@ -33,7 +40,7 @@
         padding: 1rem 0.5rem;
       }
       .button1 {
-        color:#FFBB00;
+        color:#FFA200;
         margin: 1rem;
         margin-bottom: 10rem;
         padding:0.5rem 8rem;
@@ -53,7 +60,7 @@
         padding: 0.5rem;
       }
       .button3 {
-        color:#FFBB00;
+        color:#FFA200;
         margin: 1rem;
         margin-top: 5rem;
         padding:0.5rem 8rem;
@@ -74,7 +81,7 @@
   <div class="page">
     <p class="t_a_l">話題</p>
     <form action="" name = "form">
-      <input class="textbox" name="subjectname" type="text" placeholder="好きな話題を入力してね">
+      <input id="remove" class="textbox" name="subjectname" type="text" placeholder="好きな話題を入力してね">
     </form>
     <br>
     <input class="button1" type="button" value="追加" onclick="add_subject()">
