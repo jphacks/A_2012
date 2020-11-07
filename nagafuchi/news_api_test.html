@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>news api test</title>
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+        // News API Params
+        const params = {
+            q: '鬼滅の刃',
+            category: 'general',
+            country: 'ja',
+            apiKey: ''
+        };
+        // News API URL
+        const url = `https://newsapi.org/v2/top-headlines?q=${params.q}&category=${params.category}&country=${params.country}&apiKey=${params.apiKey}`;
+        // HTMLからidを取得
+        const content = document.getElementById('content');
+        // ニュースを取得する関数
+        const getNews = async (url) => {
+            let news = await fetch(url).then(response => response.json());
+            news.articles.forEach(item => {
+                console.log(item.title);
+                content.innerHTML += item.title;
+            });
+        }
+        // 実行
+        getNews(url);
+    </script>
+</body>
+</html>
