@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JPHacksTest</title>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
+
+  <style>
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      background: #ffffff;
+    }
+
+    .page {
+      display: inline-block;
+      max-width: 62rem;
+      text-align: center;
+      padding: 3rem 6rem;
+      font-size: 3rem;
+    }
+
+    .textbox2 {
+      margin: 10rem 0rem;
+      width: 100%;
+      border-radius: 1rem;
+      background: #f7f7f7;
+      box-shadow: inset 0.5rem 0.5rem 1.5rem #d2d2d2, inset 0.5rem 0.5rem 1.5rem #ffffff;
+      padding: 1rem 0.5rem;
+    }
+
+    .text {
+      color: #FFA200;
+      padding: 2rem 0rem;
+    }
+
+    .projection4 {
+      width: 100%;
+      margin: 5rem 0rem;
+      margin-bottom: 3rem;
+      padding: 1rem 8rem;
+      border-radius: 3.5rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+
+    .button1 {
+      width: 80%;
+      color: #FFA200;
+      margin: 1rem;
+      margin-bottom: 5rem;
+      padding: 0.5rem 0rem;
+      border-radius: 3.5rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+
+    .button3 {
+      color: #FFA200;
+      margin: 1rem;
+      margin-top: 7rem;
+      padding: 0.5rem 8rem;
+      border-radius: 3.5rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="projection4">
+      <p class="text">ルームを作成する</p>
+      <form action="" name="form">
+        <input class="textbox2" name="subjectname" type="text">
+      </form>
+      <input class="button1" type="button" value="ルームを作成" onclick="make_room()">
+    </div>
+    <div class="projection4">
+      <p class="text">ルームを作成する</p>
+      <form action="" name="form">
+        <input class="textbox2" name="subjectname" type="text">
+      </form>
+      <input class="button1" type="button" value="ルームに参加" onclick="join_room()">
+    </div>
+    <input class="button3" type="button" value="TOPへ戻る" onclick="location.href='./top.html'">
+  </div>
+  <script type="text/javascript" language="JavaScript">
+    function add_subject() {
+      const element = document.createElement(p)
+    }
+    const make_room = () => {
+      location.href = 'room.html';
+    }
+  </script>
+</body>
+
+</html>

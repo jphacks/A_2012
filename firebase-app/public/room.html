@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>JPHacksTest</title>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .tab {
+      background-color: #FFA200;
+      height: 8rem;
+    }
+
+    .room_page {
+      text-align: center;
+      padding: 2rem;
+      font-size: 3rem;
+    }
+
+    .textbox {
+      width: 100%;
+      border-radius: 1rem;
+      background: #f7f7f7;
+      box-shadow: inset 0.5rem 0.5rem 1.5rem #d2d2d2, inset 0.5rem 0.5rem 1.5rem #ffffff;
+      padding: 1rem 0.5rem;
+    }
+
+    .button3 {
+      color: #FFA200;
+      margin: 1rem;
+      margin-top: 5rem;
+      padding: 0.5rem 8rem;
+      border-radius: 3.5rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+
+    .projection3 {
+      width: 100%;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-radius: 2.0rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+
+    .projection4 {
+      width: 100%;
+      height: 85.3rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-radius: 2.0rem;
+      background: #f7f7f7;
+      box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
+    }
+
+    .member {
+      border-radius: 1.75rem;
+      font-size: 1.5rem;
+      margin: 2rem 0.5rem;
+      padding: 0.5rem 2rem;
+      background-color: red;
+      color: #ffffff;
+    }
+
+    .name {
+      font-size: 2.0rem;
+    }
+
+    .topic_name {
+      margin: 0.5rem 0rem;
+      font-size: 3.5rem;
+    }
+
+    .room_canvas {
+      border: solid 0.3rem;
+      border-color: #666;
+      border-radius: 15rem;
+      height: 30rem;
+      width: 30rem;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    .baloon {
+      border: solid 0.2rem;
+      border-color: #666;
+      height: auto;
+      position: relative;
+      padding: 2rem;
+      background-color: #f7f7f7;
+      color: #000000;
+      border-radius: 8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+  </div>
+  <div class="room_page">
+    <div class="projection3">
+      <p class="topic_name"><em>雑談ルーム</em></p>
+      <p class="name">メンバー</p>
+      <span class="member">fuchio</span>
+      <span class="member">草原</span>
+      <span class="member">ddsk</span>
+    </div>
+    <div id="canvas-container" class="projection4">
+      <canvas id="sincanvas" class="room_canvas"></canvas>
+      <div class="baloon">
+        そういえば，最近キーボード一体型のRaspberry Piが発売されましたね。
+      </div>
+    </div>
+    <input class="button3" type="button" value="会話を終了" onclick="location.href='./starttalk.html'">
+  </div>
+  <script type="text/javascript" language="JavaScript">
+  wave_height = 35;
+    function add_subject() {
+      const str1 = document.form.subjectname.value;
+      const Place_aS = document.getElementById('addSub');
+      const Clone_subjects = document.createElement('p');
+      Clone_subjects.setAttribute("class", "subjects");
+      Place_aS.appendChild(Clone_subjects);
+    }
+
+    function draw() {
+      context.clearRect(0, 0, width, height);
+      drawWave('#10c2cd', 1, 3, 0);
+      draw.seconds = draw.seconds + .009;
+      draw.t = draw.seconds * Math.PI;
+      setTimeout(draw, 35);
+    }
+
+    window.addEventListener('load', draw, false);
+
+    function draw() {
+      var r = 5;
+      var T = 300;
+      var degree = 0;
+
+      var canvas = document.getElementById('sincanvas');
+      var ctx = canvas.getContext('2d');
+
+      function loop() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.strokeStyle = '#FFF133';
+        ctx.lineWidth = 1;
+        drawWave(degree);
+
+        ctx.stroke();
+
+        ctx.fillStyle = '#FFF133';
+        ctx.globalAlpha = 1;
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.lineTo(0, canvas.height);
+        ctx.closePath()
+        ctx.fill();
+
+        degree += 3;
+
+        requestAnimationFrame(loop);
+      }
+
+      loop();
+
+      function drawWave(degree) {
+        ctx.moveTo(0, -r * Math.sin((2 * Math.PI / T) * degree) + (canvas.height / 2));
+        for (var x = 1; x <= canvas.width; x += 1) {
+          var y = -r * Math.sin((2 * Math.PI / T) * (degree + x));
+          ctx.lineTo(x, y + (canvas.height / 2 + wave_height));//min,max+-70
+        }
+      }
+    }
+    // 感情分析部分
+    //タイマー識別用
+    let timerId;
+
+    // ネガポジの履歴
+    let queue = [];
+
+    // ネガティブに話題が寄った時に実行される関数
+    const alertNegative = () => {
+      queue.splice(0);
+
+    };
+
+    // 感情分析API
+    const fetchSentiJudge = async (url) => {
+      const resp = await fetch(url);
+      const judge = await resp.json();
+      console.log(judge.emotion);
+      if (queue.length == 8) {
+        queue.shift();
+        queue.push(judge.emotion)
+        if (queue.every(value => value == 'negative')) {
+          wave_height += 5;
+          alertNegative();
+        }
+      } else {
+        queue.push(judge.emotion)
+        wave_height -= 5;
+      }
+    };
+
+    // 音声認識API
+    const speech = new webkitSpeechRecognition();
+    speech.lang = 'ja-JP';
+
+    const btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function () {
+      speech.start();
+    });
+
+    speech.onresult = function (e) {
+      speech.stop();
+      if (e.results[0].isFinal) {
+        clearTimeout(timerId);
+        var autotext = e.results[0][0].transcript
+        content.innerHTML += '<div>' + autotext + '</div>';
+        var chunk = autotext.replace(/\s/g, '');
+        var url = 'http://127.0.0.1:5000/?s=' + chunk;
+        fetchSentiJudge(url);
+        // 黙って10秒したら
+      }
+    }
+
+    speech.onend = () => {
+      speech.start()
+    };
+  </script>
+</body>
+
+</html>
