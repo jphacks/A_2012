@@ -8,28 +8,20 @@
     function add_subject() {
       const element = document.createElement(p)
     }
-    function jump_to_top{
-
-    }
     </script>
     <style>
+      html{
+        font-size: 16px;
+      }
       body {
         background: #ffffff;
-        text-align:center;
       }
       .page{
+        display: inline-block;
+        max-width: 62rem;
         text-align: center;
         padding:3rem 6rem;
         font-size: 3rem;
-      }
-      .button1 {
-        color:#FFBB00;
-        margin: 1rem;
-        margin-bottom: 10rem;
-        padding:0.5rem 8rem;
-        border-radius: 3.5rem;
-        background: #f7f7f7;
-        box-shadow: 1rem 1rem 3rem #d2d2d2, -1rem -1rem 3rem #ffffff;
       }
       .textbox2{
         margin:10rem 0rem;
@@ -43,9 +35,10 @@
         color:#FFA200;
         padding:2rem 0rem;
       }
-      .projection {
+      .projection4 {
         width: 100%;
         margin: 5rem 0rem;
+        margin-bottom:3rem;
         padding:1rem 8rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
@@ -64,7 +57,7 @@
       .button3 {
         color:#FFA200;
         margin: 1rem;
-        margin-top: 5rem;
+        margin-top: 7rem;
         padding:0.5rem 8rem;
         border-radius: 3.5rem;
         background: #f7f7f7;
@@ -74,14 +67,14 @@
 </head>
 <body>
   <div class="page">
-    <div class = "projection">
+    <div class = "projection4">
       <p class="text">ルームを作成する</p>
       <form action="" name = "form">
         <input class="textbox2" name="subjectname" type="text">
       </form>
       <input class="button1" type="button" value="ルームを作成" onclick="make_room()">
     </div>
-    <div class = "projection">
+    <div class = "projection4">
       <p class="text">ルームを作成する</p>
       <form action="" name = "form">
         <input class="textbox2" name="subjectname" type="text">
